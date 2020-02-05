@@ -13,6 +13,18 @@
     },
     "dashboard": {
       "tags": []
+    },
+    "material": {
+      "tags": []
+    },
+    "core-data": {
+      "tags": []
+    },
+    "ui-lib": {
+      "tags": []
+    },
+    "core-state": {
+      "tags": []
     }
   }
 }
