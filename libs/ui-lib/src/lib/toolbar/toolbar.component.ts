@@ -1,8 +1,7 @@
-import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService, User } from '@mdv-twelve/core-data';
 import { Component, OnInit, Input } from '@angular/core';
-import { NotifyService } from '@mdv-twelve/core-data';
+import { AuthService, NotifyService } from '@mdv-twelve/core-data';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'mdv-twelve-toolbar',
@@ -11,14 +10,28 @@ import { NotifyService } from '@mdv-twelve/core-data';
 })
 export class ToolbarComponent implements OnInit {
 
-  @Input() sidenav
   @Input() title
+  @Input() sidenav
   @Input() isAuthenticated
 
   constructor(
+    private auth: AuthService,
+    private notify: NotifyService,
+    private route: Router
   ) { }
 
   ngOnInit() {
+  }
+
+
+  logout() {
+    this.notify.notification('Successfully Logged Out');
+    this.route.navigate(['/login']);
+    this.auth.logout();
+  }
+
+  login() {
+    this.route.navigate(['/login'])
   }
 
 }
